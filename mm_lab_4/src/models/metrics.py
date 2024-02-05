@@ -1,12 +1,15 @@
 from sklearn.metrics import mean_squared_error, r2_score
 
 
-def score(models, X, y):
-    for name, model in models.items():
-        # Оценка производительности
-        predictions = model.predict(X)
-        mse = mean_squared_error(y, predictions)
-        r2 = r2_score(y, predictions)
+def score(preds, y, is_train):
+    if is_train:
+        print("TRAIN")
+    else:
+        print("TEST")
+
+    for name, pred in preds.items():
+        mse = mean_squared_error(y, pred)
+        r2 = r2_score(y, pred)
 
         # Вывод результатов
         print(f"Model: {name}")
