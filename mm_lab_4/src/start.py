@@ -1,7 +1,7 @@
 from data.make_dataset import make_ds
 from visualization.visualize import visual
 from models.train_model import train
-from models.train_model_LR import train_LR
+from models.LR import train_LR
 from models.models_manager import save_model, load_model
 from models.metrics import score
 from models.predict_model import predict
@@ -14,11 +14,13 @@ def main():
     save_model(model_ml_based)
     models = load_model(data[0])
 
+    print("DIMAAAAAAAAAAAAA")
     is_train = True
     y_train_preds_train = predict(models, data[0])
     score(y_train_preds_train, data[2], is_train)
     visual(y_train_preds_train, data[2], is_train)
 
+    print("LEEEEEEEEEEEEEEEEEE")
     is_train = False
     y_train_preds_test = predict(models, data[1])
     score(y_train_preds_test, data[3], is_train)

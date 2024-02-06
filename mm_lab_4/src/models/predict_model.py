@@ -9,6 +9,9 @@ def predict(models, X):
         if name == "LR.pkl":
             with torch.no_grad():
                 pred = model(torch.Tensor(X))
+        if name == "NN.pkl":
+            with torch.no_grad():
+                pred = model(torch.Tensor(X))
         else:
             pred = model.predict(X)
 
