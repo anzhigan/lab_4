@@ -1,6 +1,16 @@
+import torch
+
+
 def predict(models, X):
     preds = {}
+
     for name, model in models.items():
-        pred = model.predict(X)
+        print(name)
+        if name == "LR.pkl":
+            with torch.no_grad():
+                pred = model(torch.Tensor(X))
+        else:
+            pred = model.predict(X)
+
         preds[name] = pred
     return preds
